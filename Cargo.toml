@@ -1,0 +1,9 @@
+[package]
+name = "project-uninit"
+version = "0.1.0"
+authors = ["Spencer Young <spencerwyoung@outlook.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
