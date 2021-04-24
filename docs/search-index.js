@@ -1,0 +1,4 @@
+var searchIndex = JSON.parse('{\
+"project_uninit":{"doc":"Macros for safe (and unsafe) access to and initialization …","i":[[14,"partial_init","project_uninit","Partially initialize a struct wrapped in <code>MaybeUninit</code>.",null,null],[14,"project_uninit","","Obtain <code>&MaybeUninit<_></code> references to fields of a struct …",null,null],[14,"project_uninit_mut","","Obtain <code>&mut MaybeUninit<_></code> references to fields of a …",null,null],[14,"project_ptr","","<strong>Unsafe:</strong> Given a <code>*const</code> pointer to a struct, obtain <code>*const</code> …",null,null],[14,"project_ptr_mut","","<strong>Unsafe:</strong> Given a <code>*mut</code> pointer to a struct, obtain <code>*mut</code> …",null,null]],"p":[]}\
+}');
+addSearchOptions(searchIndex);initSearch(searchIndex);
