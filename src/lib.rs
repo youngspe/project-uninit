@@ -82,13 +82,13 @@
 //! It's safe to mutably project multiple fields as long as they are distinct.
 //! For example, the following snippets do not compile:
 //!
-//! ```
+//! ```compile_fail
 //! # use core::mem::MaybeUninit;
 //! # #[derive(PartialEq, Eq, Debug)]
 //! # struct Person { name: &'static str, age: u32 }
 //! # use project_uninit::partial_init;
 //! let mut person = MaybeUninit::<Person>::uninit();
-//! // let (name1, name2) = partial_init!(person => { name: "Bob", name: "Robert" });
+//! let (name1, name2) = partial_init!(person => { name: "Bob", name: "Robert" });
 //! ```
 //!
 //! ```compile_fail
@@ -100,7 +100,7 @@
 //! let (name1, name2) = project_uninit_mut!(person => { name, name });
 //! ```
 //!
-//! ```compile_fial,E0499
+//! ```compile_fail,E0499
 //! # use core::mem::MaybeUninit;
 //! # #[derive(PartialEq, Eq, Debug)]
 //! # struct Person { name: &'static str, age: u32 }
