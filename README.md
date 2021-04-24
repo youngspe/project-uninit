@@ -44,7 +44,6 @@ assert_eq!(unsafe { target.assume_init() }, MyStruct {
 
 ### Obtain references to fields of a `MaybeUninit<_>` struct
 ```rust
-# use core::mem::MaybeUninit;
 use project_uninit::project_uninit;
 
 #[derive(PartialEq, Eq, Debug)]
@@ -64,9 +63,6 @@ assert_eq!(unsafe { age.assume_init() }, 22);
 
 ### Obtain mutable references to fields of a `MaybeUninit<_>` struct
 ```rust
-# use core::mem::MaybeUninit;
-# #[derive(PartialEq, Eq, Debug)]
-# struct Person { name: &'static str, age: u32 }
 use project_uninit::project_uninit_mut;
 
 let mut person = MaybeUninit::new(Person {
