@@ -73,22 +73,19 @@
 <p>It's safe to mutably project multiple fields as long as they are distinct.
 For example, the following snippets do not compile:</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered">
+<div class='information'><div class='tooltip compile_fail'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered compile_fail">
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">person</span> <span class="op">=</span> <span class="ident">MaybeUninit</span>::<span class="op">&lt;</span><span class="ident">Person</span><span class="op">&gt;</span>::<span class="ident">uninit</span>();
-<span class="comment">// let (name1, name2) = partial_init!(person =&gt; { name: &quot;Bob&quot;, name: &quot;Robert&quot; });</span></pre></div>
+<span class="kw">let</span> (<span class="ident">name1</span>, <span class="ident">name2</span>) <span class="op">=</span> <span class="macro">partial_init</span><span class="macro">!</span>(<span class="ident">person</span> <span class="op">=</span><span class="op">&gt;</span> { <span class="ident">name</span>: <span class="string">&quot;Bob&quot;</span>, <span class="ident">name</span>: <span class="string">&quot;Robert&quot;</span> });</pre></div>
 
 <div class='information'><div class='tooltip compile_fail'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered compile_fail">
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">person</span> <span class="op">=</span> <span class="ident">MaybeUninit</span>::<span class="op">&lt;</span><span class="ident">Person</span><span class="op">&gt;</span>::<span class="ident">uninit</span>();
 <span class="kw">let</span> (<span class="ident">name1</span>, <span class="ident">name2</span>) <span class="op">=</span> <span class="macro">project_uninit_mut</span><span class="macro">!</span>(<span class="ident">person</span> <span class="op">=</span><span class="op">&gt;</span> { <span class="ident">name</span>, <span class="ident">name</span> });</pre></div>
-<pre><code class="language-compile_fial,E0499"># use core::mem::MaybeUninit;
-# #[derive(PartialEq, Eq, Debug)]
-# struct Person { name: &amp;'static str, age: u32 }
-# use project_uninit::project_uninit_mut;
-let mut person = MaybeUninit::&lt;Person&gt;::uninit();
-let name1 = project_uninit_mut!(person =&gt; name);
-let name2 = project_uninit_mut!(person =&gt; name);
-drop(name1);
-</code></pre>
+
+<div class='information'><div class='tooltip compile_fail'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered compile_fail">
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">person</span> <span class="op">=</span> <span class="ident">MaybeUninit</span>::<span class="op">&lt;</span><span class="ident">Person</span><span class="op">&gt;</span>::<span class="ident">uninit</span>();
+<span class="kw">let</span> <span class="ident">name1</span> <span class="op">=</span> <span class="macro">project_uninit_mut</span><span class="macro">!</span>(<span class="ident">person</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">name</span>);
+<span class="kw">let</span> <span class="ident">name2</span> <span class="op">=</span> <span class="macro">project_uninit_mut</span><span class="macro">!</span>(<span class="ident">person</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">name</span>);
+<span class="ident">drop</span>(<span class="ident">name1</span>);</pre></div>
 <p>Additionally, lifetime rules are enforced just like any other borrow.
 The following will not compile:</p>
 

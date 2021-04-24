@@ -231,13 +231,13 @@
 <span class="doccomment">//! It&#39;s safe to mutably project multiple fields as long as they are distinct.</span>
 <span class="doccomment">//! For example, the following snippets do not compile:</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
+<span class="doccomment">//! ```compile_fail</span>
 <span class="doccomment">//! # use core::mem::MaybeUninit;</span>
 <span class="doccomment">//! # #[derive(PartialEq, Eq, Debug)]</span>
 <span class="doccomment">//! # struct Person { name: &amp;&#39;static str, age: u32 }</span>
 <span class="doccomment">//! # use project_uninit::partial_init;</span>
 <span class="doccomment">//! let mut person = MaybeUninit::&lt;Person&gt;::uninit();</span>
-<span class="doccomment">//! // let (name1, name2) = partial_init!(person =&gt; { name: &quot;Bob&quot;, name: &quot;Robert&quot; });</span>
+<span class="doccomment">//! let (name1, name2) = partial_init!(person =&gt; { name: &quot;Bob&quot;, name: &quot;Robert&quot; });</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```compile_fail</span>
@@ -249,7 +249,7 @@
 <span class="doccomment">//! let (name1, name2) = project_uninit_mut!(person =&gt; { name, name });</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ```compile_fial,E0499</span>
+<span class="doccomment">//! ```compile_fail,E0499</span>
 <span class="doccomment">//! # use core::mem::MaybeUninit;</span>
 <span class="doccomment">//! # #[derive(PartialEq, Eq, Debug)]</span>
 <span class="doccomment">//! # struct Person { name: &amp;&#39;static str, age: u32 }</span>
