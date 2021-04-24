@@ -1,4 +1,9 @@
 //! Macros for safe (and unsafe) access to and initialization of fields of structs wrapped in `MaybeUninit<_>`
+//! This crate uses the
+//! [`ptr::addr_of!`](core::ptr::addr_of)
+//! and [`ptr::addr_of_mut!`](core::ptr::addr_of_mut)
+//! macros introduced in Rust 1.51 to avoid undefined behavior.
+//!
 //!
 //! ## Examples
 //! ### Initialize a struct one field at a time

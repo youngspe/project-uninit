@@ -2,6 +2,11 @@
 
 Rust macros for safe (and unsafe) access to and initialization of fields of structs wrapped in `MaybeUninit<_>`
 
+This crate uses the
+[`ptr::addr_of!`](https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of.html)
+and [`ptr::addr_of_mut!`](https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of_mut.html)
+macros introduced in Rust 1.51 to avoid undefined behavior.
+
 See the [docs](https://youngspe.github.io/project-uninit/project_uninit/) for more information and examples.
 
 ## Examples
