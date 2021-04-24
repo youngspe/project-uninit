@@ -4,8 +4,9 @@ version = "0.1.0"
 authors = ["Spencer Young <spencerwyoung@outlook.com>"]
 edition = "2018"
 repository = "https://github.com/youngspe/project-uninit"
-license-file = "LICENSE.txt"
+license-file = "LICENSE"
 keywords = ["uninit", "uninitialized", "macro", "macros", "unsafe"]
+description = "Macros for safe references to and initialization of fields in MaybeUninit structs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
