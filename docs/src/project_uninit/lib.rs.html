@@ -146,8 +146,18 @@
 <span id="143">143</span>
 <span id="144">144</span>
 <span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Macros for safe (and unsafe) access to and initialization of fields of structs wrapped in `MaybeUninit&lt;_&gt;`</span>
+<span class="doccomment">//! This crate uses the</span>
+<span class="doccomment">//! [`ptr::addr_of!`](core::ptr::addr_of)</span>
+<span class="doccomment">//! and [`ptr::addr_of_mut!`](core::ptr::addr_of_mut)</span>
+<span class="doccomment">//! macros introduced in Rust 1.51 to avoid undefined behavior.</span>
+<span class="doccomment">//!</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ## Examples</span>
 <span class="doccomment">//! ### Initialize a struct one field at a time</span>
